@@ -1,6 +1,22 @@
 [
 	{
 		"year": 2024,
+		"month": 12,
+		"day": 24,
+		"link": "/articles/2024/12/dptran.html",
+		"image": "/img/apps/dptran/dptran-2.1.1.png",
+		"image_webp": "/img/apps/dptran/dptran-2.1.1.webp"
+	},
+	{
+		"year": 2024,
+		"month": 7,
+		"day": 16,
+		"link": "/articles/2024/07/dptran.html",
+		"image": "/img/apps/dptran/dptran-2.1.0.png",
+		"image_webp": "/img/apps/dptran/dptran-2.1.0.webp"
+	},
+	{
+		"year": 2024,
 		"month": 3,
 		"day": 3,
 		"link": "/articles/2024/03/dptran.html",
