@@ -1,0 +1,16 @@
+.tile-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.tile {
+    display: block;
+    text-align: center;
+    height: fit-content;
+    min-height: 80px;
+}
+
+.tile-txt {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
