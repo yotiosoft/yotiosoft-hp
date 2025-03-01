@@ -1,0 +1,133 @@
+<!DOCUTYPE HTML>
+<html lang="ja">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174934210-1"></script>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="../../../style.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="../../../style_m.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="../../../header.css" media="screen and (min-width: 768px)">
+    <link rel="stylesheet" href="../../../header_m.css" media="screen and (max-width: 767px)">
+    <link rel="stylesheet" href="../../../article.css">
+    <link rel="stylesheet" href="../../../badges.css">
+    <link rel="stylesheet" href="../../../simple-box.css">
+    <link rel="stylesheet" href="../../../cube.css">
+    <!--Google Code Prettify-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang-cpp&skin=sunburst"></script>
+    <link rel="stylesheet" href="../../../code-pre.css">
+    <link rel="icon" type="image/png" href="/img/logo/yotiosoft32.png">
+    <title>winprocinfo を公開しました - YotioSoft</title>
+
+    <script src="../../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../../js/common.js"></script>
+    <script src="../../../js/side.js"></script>
+    <script src="../../../js/jump.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <header>
+        <div id="headers">
+          <div id="header_fixed">
+            <div id="header"></div>
+          </div>
+        </div>
+      </header>
+
+      <div id="under-header">
+
+      <nav>
+        <div class="navibar_wrap">
+          <div class="navibar">
+            <a href="/">Home</a>
+            <span class="arrow">></span>
+            <a href="/articles">お知らせ</a>
+            <span class="arrow">></span>
+            winprocinfo を公開しました
+          </div>
+        </div>
+      </nav>
+
+      <div class="main_wrap">
+        <div id="sidebar" style="display: none;"></div>
+        <div id="content">
+          <div id="about_here"></div>
+          <div class="article_head">
+            <div id="article_title">winprocinfo を公開しました</div>
+
+            <span class="article_badges" id="article_tags">
+              <div class="badge-group">
+                <div class="badge-yellowgreen">新作</div>
+              </div>
+            </span>
+
+            <span id="article_info">
+              公開日：2025年3月1日
+            </span>
+          </div>
+
+          <p id="article_content">
+            <div id="article_summary">
+              Windows で現在実行中のプロセスやスレッドの情報を取得する Rust ライブラリ「WinProcInfo」を公開しました。
+            </div>
+            <picture>
+              <source type="image/webp" srcset="/img/apps/winprocinfo/winprocinfo.webp" style="width: 100%; max-width: 600px;" />
+              <img src="/img/apps/winprocinfo/winprocinfo.png" style="width: 100%; max-width: 600px;" />
+            </picture><br>
+            <br>
+            <h2>機能</h2>
+            <ul>
+              <li>プロセス・スレッド情報リストの一括取得（WinProcList）</li>
+              <li>リストからのPID・プロセス名での検索</li>
+              <li>プロセス・スレッド情報の個別取得</li>
+            </ul>
+            <br>
+            WinProcInfo では、WinProcList に現在実行中のプロセス・スレッドの情報を一括で取得し、リストからの検索や個別取得が可能です。<br>
+            プロセスやスレッドの一括での取得はメモリを消費します。仮に一部の情報だけを取得したい場合は、個別での取得も可能です。<br>
+            <br>
+            <h2>サンプルプログラム</h2>
+            全プロセス情報を取得し、PID とプロセス名を表示する
+            <pre class="prettyprint linenums">
+use winprocinfo;
+
+fn main() {
+    let proc_list = winprocinfo::get_list().expect("Failed to retrieve process list");
+    for proc in proc_list.proc_list.iter() {
+        println!("PID: {}, Name: {}", proc.unique_process_id, proc.image_name);
+    }
+}</pre>
+            <br><br>
+            <h2>インストール方法</h2>
+            バイナリ（サンプルプログラム）を実行する場合：
+            <pre class="prettyprint linenums">$ cargo install winprocinfo</pre>
+            <br>
+            ライブラリを使用する場合：
+            <pre class="prettyprint linenums">
+[dependencies]
+winprocinfo = "0.1.1"</pre>
+            <br><br>
+            <h2>動作環境</h2>
+            <ul>
+              <li>Windows x86_64</li>
+            </ul>
+            管理者権限は不要です。<br>
+            <br><br>
+            <h2>詳細</h2>
+            詳しくは crates.io またはドキュメントをご覧ください。<br>
+            <br>
+            winprocinfo - crates.io: Rust Package Registry<br>
+            <a href="https://crates.io/crates/winprocinfo" target="_blank">https://crates.io/crates/winprocinfo</a><br>
+            <br>
+            WinProcInfo - Docs.rs: Rust Documentation<br>
+            <a href="https://docs.rs/winprocinfo" target="_blank">https://docs.rs/winprocinfo</a>
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer_class">
+        <div id="footer"></div>
+      </footer>
+    </div>
+  </body>
+
+</html>
