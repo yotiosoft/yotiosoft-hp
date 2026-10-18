@@ -19,7 +19,8 @@
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/side.js"></script>
     <script src="../js/common.js"></script>
-    <script src="../js/staticform.js"></script>
+    <script defer src="../js/contact-form.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5605897321593790"
      crossorigin="anonymous"></script>
 </head>
@@ -180,29 +181,25 @@
             <div class="container">
               <div class="columns">
                 <div class="column is-half">
-                  <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
-                    <input type="hidden" name="accessKey" required id="form_input">
-                    <script>
-                      put_input_obj();
-                    </script>
+                  <form action="https://contact.yotiosoft.com/contact" method="post" id="contact-form">
                     <div class="form-element">
                       <label class="label">お名前</label>
-                      <input type="text" name="name" required>
+                      <input type="text" name="name" required maxlength="100">
                     </div>
                     <div class="form-element">
                       <label class="label">E-mail</label>
-                      <input type="text" name="email" required>
+                      <input type="email" name="email" required maxlength="254">
                     </div>
                     <div class="form-element">
                       <label class="label">タイトル</label>
-                      <input type="text" name="subject" required>
+                      <input type="text" name="subject" required maxlength="150">
                     </div>
                     <div class="form-element">
                       <label class="label">内容</label>
-                      <textarea name="message" required></textarea>
+                      <textarea name="message" required maxlength="10000"></textarea>
                     </div>
-                    <input type="hidden" name="replyTo" value="yotiosoft2014@gmail.com">
-                    <input type="hidden" name="redirectTo" value="https://yotiosoft.com/support/thanks.html">
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZ-xoBWC16gDFrv"></div>
+                    <p id="contact-form-error" role="alert" aria-live="polite" hidden></p>
                     <input type="submit" value="送信" style="width: 50px;" />
                   </form>
                 </div>
